@@ -11,8 +11,8 @@ import java.awt.event.*;
 /**
  * Décrivez votre classe Controleur ici.
  * 
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * @author (Antonios Ghaly)
+ * @version (6/7/2020)
  */
 public class Controleur extends JPanel {
 
@@ -34,7 +34,7 @@ public class Controleur extends JPanel {
 
         setLayout(new GridLayout(2, 1));
         add(donnee);
-        donnee.addActionListener(null /* null est à remplacer */);
+        //donnee.addActionListener(new ButtonsActionListener("actionListener"));
         JPanel boutons = new JPanel();
         boutons.setLayout(new FlowLayout());
         boutons.add(push);  push.addActionListener(null /* null est à remplacer */);
@@ -49,16 +49,29 @@ public class Controleur extends JPanel {
     }
 
     public void actualiserInterface() {
-        // à compléter
+        if(pile.taille() <= 1){
+            add.setEnabled(false);
+            sub.setEnabled(false);
+            mul.setEnabled(false);
+            div.setEnabled(false);
+        } 
+        else {
+            add.setEnabled(true);
+            sub.setEnabled(true);
+            mul.setEnabled(true);
+            div.setEnabled(true);
+        }
+        if(pile.estPleine()){
+            push.setEnabled(false);
+        }   
+        else{
+            push.setEnabled(true);
+        }    
     }
 
     private Integer operande() throws NumberFormatException {
         return Integer.parseInt(donnee.getText());
     }
-
-    // à compléter
-    // en cas d'exception comme division par zéro, 
-    // mauvais format de nombre suite à l'appel de la méthode operande
-    // la pile reste en l'état (intacte)
-
-}
+ public class ButtonsActionListener implements ActionListener{
+        public void actionPerformed(ActionEvent event){
+}}}

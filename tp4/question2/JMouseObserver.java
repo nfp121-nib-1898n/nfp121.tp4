@@ -1,16 +1,16 @@
 package question2;
 
-//import java.awt.event.// à compléter
+import java.awt.event.MouseListener;// à compléter
 import java.awt.event.MouseEvent;
 import java.awt.TextArea;
 
 /**
  * Décrivez votre classe JButtonObserver ici.
  * 
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * @author (Antonios Ghaly)
+ * @version (6/7/2020)
  */
-public class JMouseObserver { // à compléter
+public class JMouseObserver implements MouseListener{ // à compléter
 
 	private String nom;
 	private TextArea contenu;
@@ -34,7 +34,7 @@ public class JMouseObserver { // à compléter
 	 * @param
 	 */
 	public void mouseEntered(MouseEvent e) {
-		String message = "";
+		String message ="Observateur " + nom + " : souris entree en ("+e.getX()+", "+e.getY()+")";
 		contenu.append(message + "\n");
 	}
 
